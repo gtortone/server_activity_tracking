@@ -20,7 +20,7 @@ var bclient = new bbt.Connector({
 //Frequency of activity reporting in milliseconds
 var frequency = process.env.FREQUENCY || (60 * 1000 /* 1 minute */);
 // Channel name. Change it as suits you (it MUST correspond to an existing channel in your account)
-var channel_name = "sandbox";
+var channel_name = "monitor";
 
 setInterval(function()
   {
@@ -33,17 +33,5 @@ setInterval(function()
         if(err) console.log(err);
       });
     });
-    diskspace.check('/data', function (err, total, free, status) {
-      bclient.write({
-        channel: channel_name,
-        resource: 'data',
-        data: { size: total, used: total - free }
-      }, function(err, res) {
-        if(err) console.log(err);
-      });
-    });
   }, frequency
 );
-
-
-

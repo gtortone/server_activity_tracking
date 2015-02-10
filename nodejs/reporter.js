@@ -21,7 +21,7 @@ var bclient = new bbt.Connector({
 //Frequency of activity reporting in milliseconds
 var frequency = process.env.FREQUENCY || (60 * 1000 /* 1 minute */);
 // Channel and resource names. Change them as suits you (they MUST correspond to an existing channel in your account)
-var channel_name = "sandbox";
+var channel_name = "monitor";
 var cpu_resource = "cpu";
 var mem_resource = "memory";
 
@@ -69,7 +69,7 @@ function meminfo(callback, elems) {
       line = line.replace(/\skB/, '');
       var record = line.split(/\:/);
       if (record[0] !== '') {
-        data[record[0].toLowerCase()] = parseInt(record[1]);
+        data[record[0].toLowerCase()] = parseInt(record[1]) * 1024;
       }
     });
     if(elems) {

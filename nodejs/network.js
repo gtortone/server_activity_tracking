@@ -22,7 +22,7 @@ var bclient = new bbt.Connector({
 var frequency = process.env.FREQUENCY || (60 * 1000 /* 1 minute */);
 var oldinfo = null;
 // Channel name. Change it as suits you (they MUST correspond to an existing channel in your account)
-var channel_name = "ooosandbox";
+var channel_name = "monitor";
 
 function netinfo(callback, ifs) {
   fs.readFile('/proc/net/dev', 'utf8', function (err, ninfo) {
