@@ -21,10 +21,10 @@ var channel_name = "temperature";
 
 setInterval(function()
   {
-    var pv = new epics.Channel('LTC2499:NTC:sh:degC');
+    var pv1 = new epics.Channel('LTC2499:NTC:sh:degC');
 
-    pv.connect(function() {
-       pv.get(function(err, value) {
+    pv1.connect(function() {
+       pv1.get(function(err, value) {
        //console.log('Current:',value);
        bclient.write({
           channel: channel_name,
@@ -33,8 +33,24 @@ setInterval(function()
        }, function(err, res) {
           if(err) console.log(err);
        });
+      });
+    })
+
+    var pv2 = new epics.Channel('LTC2499:temperature');
+
+    pv2.connect(function() {
+       pv2.get(function(err, value) {
+       //console.log('Current:',value);
+       bclient.write({
+          channel: channel_name,
+          resource: "adc_temp",
+          data: value
+       }, function(err, res) {
+          if(err) console.log(err);
+       });
     });
+  
 })
 
-  }, frequency
+  }, frequency 
 );
