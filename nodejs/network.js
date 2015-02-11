@@ -19,7 +19,7 @@ var bclient = new bbt.Connector({
 });
 
 //Frequency of activity reporting in milliseconds
-var frequency = process.env.FREQUENCY || (60 * 1000 /* 1 minute */);
+var frequency = process.env.FREQUENCY || (120 * 1000 /* 2 minutes */);
 var oldinfo = null;
 // Channel name. Change it as suits you (they MUST correspond to an existing channel in your account)
 var channel_name = "monitor";

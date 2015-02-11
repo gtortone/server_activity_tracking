@@ -16,7 +16,7 @@ var options = {
 var session = ping.createSession (options);
 
 //Frequency of activity reporting in milliseconds
-var frequency = process.env.FREQUECY || (60 * 1000 /* 1 minute */);
+var frequency = process.env.FREQUECY || (120 * 1000 /* 2 minutes */);
 // Channel and resource names. Change them as suits you (they MUST correspond to an existing channel in your account)
 var channel_name = "monitor";
 var latency_resource = "latency";

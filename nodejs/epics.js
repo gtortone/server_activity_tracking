@@ -15,7 +15,7 @@ var bclient = new bbt.Connector({
 });
 
 //Frequency of activity reporting in milliseconds
-var frequency = process.env.FREQUENCY || (60 * 1000 /* 1 minute */);
+var frequency = process.env.FREQUENCY || (120 * 1000 /* 2 minutes */);
 // Channel name. Change it as suits you (it MUST correspond to an existing channel in your account)
 var channel_name = "temperature";
 
