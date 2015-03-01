@@ -99,7 +99,7 @@ setInterval(function()
       });
 
       meminfo(function (err, data) {
-        console.log(data);
+        //console.log(data);
         if(err) return console.log(err);
         //Write a record to the memory resource
         bclient.writeResource({
@@ -110,7 +110,7 @@ setInterval(function()
           if(err) console.log(err);
         });
       }, ['MemTotal', 'memfree', 'cached', 'dirty']);
-      console.log(avg_cpu);
+      //console.log(avg_cpu);
       cpus = new_cpus;
     }
   }, frequency 

@@ -67,7 +67,7 @@ function netinfo(callback, ifs) {
 setInterval(function()
   {
     netinfo(function (err, data) {
-      console.log(data);
+      //console.log(data);
       for( net in data ) {
         //Write a record to the latency resource
         bclient.write({
