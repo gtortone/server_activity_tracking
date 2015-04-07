@@ -18,11 +18,11 @@ var bclient = new bbt.Connector({
 var frequency = process.env.FREQUENCY || (120 * 1000 /* 2 minutes */);
 // Channel name. Change it as suits you (it MUST correspond to an existing channel in your account)
 var channel_name = "temperature";
+var pv1 = new epics.Channel('LTC2499:NTC:sh:degC');
+var pv2 = new epics.Channel('LTC2499:temperature');
 
 setInterval(function()
   {
-    var pv1 = new epics.Channel('LTC2499:NTC:sh:degC');
-
     pv1.connect(function() {
        pv1.get(function(err, value) {
        //console.log('Current:',value);
@@ -35,8 +35,6 @@ setInterval(function()
        });
       });
     })
-
-    var pv2 = new epics.Channel('LTC2499:temperature');
 
     pv2.connect(function() {
        pv2.get(function(err, value) {
