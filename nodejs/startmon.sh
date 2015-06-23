@@ -11,4 +11,6 @@ cd /opt/server_activity_tracking/nodejs
 /usr/bin/nohup /usr/bin/nodejs reporter.js 2>&1 /dev/null &
 /usr/bin/nohup /usr/bin/nodejs disk.js 2>&1 /dev/null &
 /usr/bin/nohup /usr/bin/nodejs network.js 2>&1 /dev/null &
-/usr/bin/nohup /usr/bin/nodejs epics.js 2>&1 /dev/null &
+#/usr/bin/nohup /usr/bin/nodejs epics.js 2>&1 /dev/null &
+/usr/bin/nohup /usr/bin/nodejs sector7F.js 2>&1 /dev/null &
+/usr/bin/nohup /usr/bin/nodejs sector8F.js 2>&1 /dev/null &
