@@ -1,5 +1,6 @@
 #!/bin/bash
 
+export PATH=$PATH:/opt/epics/base/bin/linux-arm
 export EPICS_BASE=/opt/epics/base
 export EPICS_HOST_ARCH=linux-arm
 
