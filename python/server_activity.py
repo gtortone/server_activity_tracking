@@ -22,10 +22,10 @@ bbt = BBT(conf._accesskey, conf._secretkey)
 #If you don,t have already a channel, create it here http://beebotte.com/channel/create
 #Create Resource objects for the resources to report,
 #change the channel and resource names as suits you
-cpu_resource  = Resource(bbt, 'sanbox', 'cpu')
-mem_resource  = Resource(bbt, 'sandbox', 'memory')
-disk_resource = Resource(bbt, 'sandbox', 'disk')
-net_resource  = Resource(bbt, 'sandbox', 'eth0')
+cpu_resource  = Resource(bbt, 'monitor', 'cpu')
+mem_resource  = Resource(bbt, 'monitor', 'memory')
+disk_resource = Resource(bbt, 'monitor', 'disk')
+net_resource  = Resource(bbt, 'monitor', 'eth0')
 
 debug = False
 
