@@ -34,22 +34,34 @@ def run():
 
        val = caget('S'+s.upper()+':TEMP01')
        val = round(val,2)
-       bbt.write('sector'+s.upper(), 'temp01', val)
+       try:
+          bbt.write('sector'+s.upper(), 'temp01', val)
+       except:
+          print "Error Writing on BeeBotte"
        line = line + str(val) + ';'
 
        val = caget('S'+s.upper()+':TEMP02')
        val = round(val,2)
-       bbt.write('sector'+s.upper(), 'temp02', val)
+       try:
+          bbt.write('sector'+s.upper(), 'temp02', val)
+       except:
+          print "Error Writing on BeeBotte"
        line = line + str(val) + ';'
 
        val = caget('S'+s.upper()+':TEMP03')
        val = round(val,2)
-       bbt.write('sector'+s.upper(), 'temp03', val)
+       try:
+          bbt.write('sector'+s.upper(), 'temp03', val)
+       except:
+          print "Error Writing on BeeBotte"
        line = line + str(val) + ';'
 
        val = caget('S'+s.upper()+':RH')
        val = round(val,1)
-       bbt.write('sector'+s.upper(), 'hum', val)
+       try:
+          bbt.write('sector'+s.upper(), 'hum', val)
+       except:
+          print "Error Writing on BeeBotte"
        line = line + str(val) + ';'
 
     line = line + '\n'
