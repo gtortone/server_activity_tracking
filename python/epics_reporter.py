@@ -12,10 +12,10 @@ bbt = BBT(conf._accesskey, conf._secretkey)
 
 header = '#timestamp;'
 for s in conf._sector:
-  header = header + 'S'+s.upper()+':TEMP01;'
-  header = header + 'S'+s.upper()+':TEMP02;'
-  header = header + 'S'+s.upper()+':TEMP03;'
-  header = header + 'S'+s.upper()+':HUM;'
+  header = header + 'S'+s.upper()+':TEMP:TEMP01;'
+  header = header + 'S'+s.upper()+':TEMP:TEMP02;'
+  header = header + 'S'+s.upper()+':TEMP:TEMP03;'
+  header = header + 'S'+s.upper()+':RH;'
   
 header = header + '\n'
 csvfile.write(header)
@@ -32,7 +32,7 @@ def run():
 
     for s in conf._sector:
 
-       val = caget('S'+s.upper()+':TEMP01')
+       val = caget('S'+s.upper()+':TEMP:TEMP01')
        val = round(val,2)
        try:
           bbt.write('sector'+s.upper(), 'temp01', val)
@@ -40,7 +40,7 @@ def run():
           print "Error Writing on BeeBotte"
        line = line + str(val) + ';'
 
-       val = caget('S'+s.upper()+':TEMP02')
+       val = caget('S'+s.upper()+':TEMP:TEMP02')
        val = round(val,2)
        try:
           bbt.write('sector'+s.upper(), 'temp02', val)
@@ -48,7 +48,7 @@ def run():
           print "Error Writing on BeeBotte"
        line = line + str(val) + ';'
 
-       val = caget('S'+s.upper()+':TEMP03')
+       val = caget('S'+s.upper()+':TEMP:TEMP03')
        val = round(val,2)
        try:
           bbt.write('sector'+s.upper(), 'temp03', val)
