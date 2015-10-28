@@ -65,6 +65,20 @@ def run():
     netif = psutil.net_io_counters(pernic=True)
     printData(cpu_times, mem, disk, netif)
 
+    #Collect ADC samples
+    f = open(conf._system_AIN_file,'r')
+    value_raw = int(f.read());
+    value_sys_V = 2 * (1.8 * value_raw) / 4095
+    value_sys_V = round(value_sys_V, 2)
+    print value_sys_V
+    f.close()
+
+    f = open(conf._bus_AIN_file,'r')
+    value_raw = int(f.read());
+    value_bus_V = 2 * (1.8 * value_raw) / 4095
+    value_bus_V = round(value_bus_V, 2)
+    f.close()
+
     #Send CPU data to Beebotte
     if last_cpu_times:
       cpu_stats = getCPUStats(cpu_times, last_cpu_times)
@@ -86,6 +100,11 @@ def run():
         net_stats = getNetStats(netif, last_net_stats, conf._ifname)
         net_resource.write(net_stats)
       last_net_stats = netif
+
+      #Send board voltages
+      bbt.write('boardV','system',value_sys_V)
+      bbt.write('boardV','bus',value_bus_V)  
+
     except:
         print "Error Writing"
 
