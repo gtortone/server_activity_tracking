@@ -70,7 +70,7 @@ def run():
     value_raw = int(f.read());
     value_sys_V = 2 * (1.8 * value_raw) / 4095
     value_sys_V = round(value_sys_V, 2)
-    print value_sys_V
+    #print value_sys_V
     f.close()
 
     f = open(conf._bus_AIN_file,'r')
